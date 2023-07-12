@@ -9,7 +9,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // sets the name of the DB that our collections are part of
-    dbName: "starwars",
+    dbName: "b=starwars",
   })
   .then(() => console.log("Connected to Mongo DB."))
   .catch((err) => console.log(err));
@@ -89,10 +89,14 @@ const personSchema = new Schema({
   height: Number,
   films: [
     {
-      title: String,
+      title: {
+        type: String,
+        required: true,
+      },
       id: {
         type: Schema.Types.ObjectId,
         ref: "film",
+        required: true,
       },
     },
   ],
