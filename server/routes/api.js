@@ -6,7 +6,8 @@ const router = express.Router();
 
 router.get('/',
   starWarsController.getCharacters,
-  (req, res) => res.status(200).json([])
+  // (req, res) => res.status(200).json([])
+  (req, res) => res.status(200).json(res.locals)
 );
 
 router.get('/species',
